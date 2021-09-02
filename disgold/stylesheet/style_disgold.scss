@@ -146,6 +146,7 @@ header {
     .left-form {
         position  : relative;
         box-shadow: 1.5px 1.5px 5px rgba($color: $dark-color, $alpha: .3);
+        border-radius   : .25rem;
 
         .form-control {
             display         : block;
@@ -153,11 +154,11 @@ header {
             padding         : .375rem .75rem;
             font-size       : .8rem;
             font-weight     : 400;
-            line-height     : 1.5;
+            line-height     : 2;
             color           : #212529;
             background-color: $white-color;
             background-clip : padding-box;
-            border          : 1px solid #ced4da;
+            border          : 1.5px solid #ced4da;
             border-radius   : .25rem;
         }
 
@@ -168,7 +169,8 @@ header {
         .search-btn {
             @include search_btn();
             background-color: rgb(239, 239, 239);
-            border-radius   : 0 .25em .25em 0 / 0 .25em .25em 0;
+            border-radius   : 0 .25rem .25em 0 / 0 .25em .25em 0;
+            height: 94%;
         }
     }
 
@@ -286,19 +288,19 @@ header {
 // ----------------- main ---------------------//
 /* main */
 
-.main_wrapper {
-    display        : flex;
-    justify-content: space-between !important;
-}
+// .main_wrapper {
+//     display        : flex;
+//     justify-content: space-between !important;
+// }
 
-.main {
-    width       : 750px;
-    padding-left: 1.8rem;
+// .main {
+//     width       : 750px;
+//     padding-left: 1.8rem;
 
-    img {
-        width: 100%;
-    }
-}
+//     img {
+//         width: 100%;
+//     }
+// }
 
 
 
