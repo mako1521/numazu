@@ -1,0 +1,152 @@
+$danger-color : #dc3545;
+$primary-color: #0b70c2;
+$white-color  : #fff;
+$light-color  : #f8f9fa;
+$dark-color   : #333;
+
+
+// radius
+$rd-0: 0;
+$rd-1: .15rem;
+$rd-2: .25rem;
+$rd-3: .5rem;
+$rd-4: .75rem;
+
+
+
+@mixin mpb-0() {
+    margin-bottom : 0;
+    padding-bottom: 0;
+}
+
+body {
+    color: #333;
+}
+
+
+ul {
+    list-style  : none;
+    padding-left: 0 !important;
+}
+
+a {
+    text-decoration: none !important;
+    color          : inherit !important;
+}
+
+
+.container {
+    width: 1050px !important;
+}
+
+// ------------ header -------------- //
+/* header */
+.rkn-wrapper {
+    justify-content: space-between;
+    align-items    : center;
+    margin-bottom  : 1rem;
+
+
+    .rkn-icons {
+        display        : flex;
+        justify-content: flex-end;
+        margin-bottom  : 0;
+
+
+        li {
+            margin-left: 1rem;
+            text-align : center;
+
+
+            p {
+                margin        : .4rem 0 0;
+                padding-bottom: 0;
+            }
+        }
+    }
+}
+
+// ------------ left-nav -------------- //
+/* left-nav */
+
+@mixin box($rd:$rd-0, $b-color:$light-color, $border:1px solid #333) {
+    border-radius   : $rd;
+    background-color: $b-color;
+    border          : $border;
+    width           : 100%;
+}
+
+@mixin search_btn() {
+    position     : absolute;
+    padding-left : .8em;
+    padding-right: .8em;
+    right        : 0;
+    bottom       : 0;
+    height       : 100%;
+    border       : none;
+    border-radius: 0 .25em .25em 0 / 0 .25em .25em 0;
+}
+
+@mixin side_nav_button() {
+    @include box_radius();
+    display        : flex;
+    align-items    : center;
+    justify-content: space-around;
+    color          : #333;
+    font-size      : 1.2rem;
+    font-weight    : 500;
+    height         : 3.5rem;
+}
+
+@mixin headline($color: $dark-color, $f-size: 1.4em) {
+    color    : $color;
+    font-size: $f-size;
+}
+
+
+.left-nav {
+    background-color: $light-color;
+    padding         : 1rem;
+
+    li {
+        margin-bottom: .5rem;
+
+        .left-form {
+            position: relative;
+
+            .search-btn {
+                @include search_btn();
+            }
+        }
+
+        img {
+            width: 100%;
+        }
+
+        .item_list,
+        .autonomous_summary {
+            @include side_nav_button();
+
+            p {
+                padding-bottom: 0;
+                margin-bottom : 0;
+            }
+        }
+
+        h2 {
+            @include headline($white-color);
+            text-align      : center;
+            background-color: $primary-color;
+            margin-top      : 2rem;
+            padding         : .7rem 1rem;
+        }
+
+        .cat_item {
+            @include box_radius();
+
+            p {
+                @include mpb-0();
+            }
+        }
+    }
+}

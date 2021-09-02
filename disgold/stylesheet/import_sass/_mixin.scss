@@ -1,0 +1,66 @@
+@import '_variable.scss';
+
+@mixin mpb-0() {
+    margin-bottom : 0;
+    padding-bottom: 0;
+}
+
+@mixin link-color($color) {
+    color: $color;
+
+    &:hover,
+    &:active,
+    &:focus {
+        color: lighten($color, 20%);
+    }
+}
+
+@mixin opacity($opacity) {
+    opacity   : $opacity;
+    $ieopacity: ($opacity * 100);
+    filter    : alpha(opacity=$ieopacity);
+}
+
+@mixin headline($color: $m-text-color, $f-size: 1.4em, $f-weight: 400) {
+    color      : $color;
+    font-size  : $f-size;
+    font-weight: $f-weight;
+}
+
+@mixin box($rd:$rd-0, $b-color:$light-color, $border:1px solid #333, $padding:1rem 0) {
+    border-radius   : $rd;
+    align-items     : center;
+    background-color: $b-color;
+    border          : $border;
+    width           : 100%;
+    padding         : $padding;
+}
+
+@mixin search_btn() {
+    @include box($rd: $rd-0, $border :none, $padding: 0);
+    position        : absolute;
+    padding-left    : .8em;
+    padding-right   : .8em;
+    right           : 0;
+    bottom          : 0;
+    height          : 100%;
+    cursor          : pointer;
+    width           : auto;
+}
+
+@mixin flex($justify-content:none) {
+    display        : flex;
+    align-items    : center;
+    justify-content: $justify-content;
+}
+
+
+@mixin transformX($transform-num:10px, $transition-num:.3s) {
+    transform : translateX($transform-num);
+    transition: $transition-num;
+}
+
+@mixin transformY($transform-num:-4px, $transition-num:.3s) {
+    transform : translateY($transform-num);
+    transition: $transition-num;
+}

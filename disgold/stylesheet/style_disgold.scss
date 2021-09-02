@@ -1,0 +1,400 @@
+@import './import_sass/mixin';
+
+// -------------------------------//
+*,
+::after,
+::before {
+    box-sizing: border-box
+}
+
+body {
+    margin          : 0;
+    font-family     : system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-size       : $f-base;
+    font-weight     : 400;
+    line-height     : 1.5;
+    color           : $dark-color;
+    background-color: $white-color;
+}
+
+.h1,
+.h2,
+.h3,
+.h4,
+h1,
+h2,
+h3,
+h4 {
+    margin-top   : 0;
+    margin-bottom: .5rem;
+    font-weight  : 700;
+    line-height  : 1.2
+}
+
+.h1,
+h1 {
+    font-size: 1.5rem
+}
+
+.h2,
+h2 {
+    font-size: 1.2rem
+}
+
+.h3,
+h3 {
+    font-size: 1.2rem
+}
+
+.h4,
+h4 {
+    font-size: 1.1rem
+}
+
+p {
+    margin-top   : 0;
+    margin-bottom: 1rem
+}
+
+address {
+    margin-bottom: 1rem;
+    font-style   : normal;
+    line-height  : inherit
+}
+
+ul {
+    list-style-type: none;
+    padding        : 0 5px;
+    margin-bottom  : 1rem;
+    margin-top     : 0;
+    margin-bottom  : 0
+}
+
+a {
+    color          : $primary-color;
+    text-decoration: underline;
+
+    &:hover {
+        opacity: .8;
+    }
+
+}
+
+.container {
+    max-width: 992px;
+    margin   : 0 auto;
+}
+
+.header-container {
+    max-width    : 1030px;
+    margin-bottom: .6rem;
+}
+
+.w-100 {
+    width: 100%;
+}
+
+.d-block {
+    display: block;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.text-white {
+    color: $white-color;
+}
+
+.text-danger {
+    color: $danger-color;
+}
+
+.text-primary {
+    color: $primary-color;
+}
+
+
+
+// ----------------- header ---------------------//
+/* ----- header ----- */
+
+header {
+    margin-bottom: 1.5rem;
+
+    iframe {
+        margin-left: 30px;
+    }
+}
+
+
+
+// ----------------- left_nav ---------------------//
+/* ----- left-nav ----- */
+.left-nav {
+    color           : #6c757d;
+    background-color: #f8f9fa;
+    padding         : 20px 20px 16px;
+    width           : 250px;
+
+}
+
+/* ----- form ----- */
+.left-nav-li {
+    margin-bottom: .8rem;
+
+    .left-form {
+        position  : relative;
+        box-shadow: 1.5px 1.5px 5px rgba($color: $dark-color, $alpha: .3);
+
+        .form-control {
+            display         : block;
+            width           : 100%;
+            padding         : .375rem .75rem;
+            font-size       : .8rem;
+            font-weight     : 400;
+            line-height     : 1.5;
+            color           : #212529;
+            background-color: $white-color;
+            background-clip : padding-box;
+            border          : 1px solid #ced4da;
+            border-radius   : .25rem;
+        }
+
+        .text-input {
+            height: 100%;
+        }
+
+        .search-btn {
+            @include search_btn();
+            background-color: rgb(239, 239, 239);
+            border-radius   : 0 .25em .25em 0 / 0 .25em .25em 0;
+        }
+    }
+
+    a {
+        text-decoration: none !important;
+
+        .box {
+            @include box($border          :2px solid rgba($color: $primary-color, $alpha: .7));
+            box-shadow                    : 1.5px 1.5px 5px rgba($color: $dark-color, $alpha: .3);
+            @include flex($justify-content:space-around);
+            border-radius                 : $rd-3;
+            transition                    : .3s;
+
+            &:hover {
+                @include transformX();
+            }
+
+            img {
+                width  : 12%;
+                opacity: .6;
+            }
+
+            p {
+                @include headline();
+                margin-bottom: 0;
+            }
+        }
+    }
+}
+
+
+/* ----- left-cat ----- */
+.left-cat-li-head {
+    margin: 2rem 0 .8rem;
+
+    .left-cat-li-wrp {
+        display          : flex;
+        @include box($rd :$rd-2, $b-color:$primary-color, $border:none, $padding:1rem .5rem);
+        justify-content  : space-around;
+        box-shadow       : 1.5px 1.5px 5px rgba($color: $dark-color, $alpha: .3);
+
+        .left-h2 {
+            @include headline($color:$white-color, $f-size: 1.2rem);
+            margin-bottom           : 0;
+        }
+
+        img {
+            width: 15%;
+        }
+    }
+}
+
+.left-cat-li {
+    background-color: none;
+    margin          : 0 .2rem .7rem;
+    border-bottom   : 1px dashed $primary-color;
+    padding-bottom  : .3rem;
+
+    a {
+        text-decoration: none;
+
+        .left-cat-li-wrp {
+            @include flex();
+            transition: .3s;
+
+            &:hover {
+                @include transformX();
+            }
+
+            img {
+                width: 17%;
+            }
+
+            p {
+                @include headline($f-size: 1.2rem);
+                margin-left              : 2rem;
+                margin-bottom            : 0;
+            }
+        }
+    }
+}
+
+
+/* ----- left-amount ----- */
+.left-amount {
+    .left-cat-li-head {
+        img {
+            width: 12%;
+        }
+    }
+
+    .left-cat-li {
+
+        a {
+            display   : block;
+            transition: .3s;
+
+            &:hover {
+                opacity: 1;
+                @include transformX();
+            }
+
+            p {
+                @include headline($f-size:1.2rem);
+                padding-bottom           : .5rem;
+                margin-bottom            : 0;
+
+            }
+        }
+    }
+
+}
+
+
+// ----------------- main ---------------------//
+/* main */
+
+.main_wrapper {
+    display        : flex;
+    justify-content: space-between !important;
+}
+
+.main {
+    width       : 750px;
+    padding-left: 1.8rem;
+
+    img {
+        width: 100%;
+    }
+}
+
+
+
+// ----------------- footer ---------------------//
+footer {
+    margin: 2rem auto;
+}
+
+/* ---- images ---- */
+.footer-images {
+    .footer-img {
+        margin-bottom: 2rem;
+        text-align   : center;
+
+        img {
+            width: 75%;
+        }
+    }
+}
+
+/* ---- notes ---- */
+.notes {
+    display        : flex;
+    justify-content: space-between;
+    flex-wrap      : wrap;
+
+    .note {
+        width        : 32%;
+        margin-bottom: 1rem;
+
+        .note-head-line {
+            @include box($rd        : $rd-1, $b-color: $primary-color, $border :none);
+            @include headline($color:$white-color, $f-size: 1.2rem);
+            text-align              : center;
+            padding                 : .5rem 0;
+        }
+
+        .note-item-li {
+
+            &:not(:last-of-type) {
+                margin-bottom: 1rem;
+            }
+
+            h4 {
+                font-size  : 1rem;
+                font-weight: 500;
+            }
+
+            .text-danger {
+                margin-bottom: .5rem;
+            }
+        }
+    }
+}
+
+
+// ----------- Around the cart of items ---------------//
+/* Around the cart of items */
+#rakutenLimitedId_aroundCart span.choice+select {
+    display      : block;
+    padding      : 6px;
+    margin-bottom: 2px;
+    border-radius: 2px;
+}
+
+#rakutenLimitedId_aroundCart span.choice {
+    display : block;
+    position: relative;
+    padding : 6px;
+    margin  : 5px 0 3px;
+}
+
+#rakutenLimitedId_aroundCart td.floating-cart-options-table:after,
+#rakutenLimitedId_aroundCart td.floating-cart-options-table:before {
+    display      : block;
+    content      : "";
+    height       : 1.5px;
+    background   : #ccc;
+    width        : 100%;
+    margin       : 20px auto;
+    border-radius: 2px;
+}
+
+#rakutenLimitedId_aroundCart input[value="寄附を申し込む"] {
+    background : url("https://image.rakuten.co.jp/_support-os/cabinet/04579909/imgrc0066494268.jpg") left top no-repeat !important;
+    width      : 240px;
+    height     : 50px;
+    text-indent: 100%;
+    white-space: nowrap;
+    overflow   : hidden;
+    border     : none;
+    padding    : 0;
+    margin-top : 5px 0;
+    cursor     : pointer;
+}
+
+#rakutenLimitedId_aroundCart input[value="寄附を申し込む"]:hover {
+    opacity: .8;
+}
