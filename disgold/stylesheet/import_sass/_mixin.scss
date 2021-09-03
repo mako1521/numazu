@@ -1,8 +1,8 @@
 @import '_variable.scss';
 
-@mixin mpb-0() {
-    margin-bottom : 0;
-    padding-bottom: 0;
+@mixin mp-0() {
+    margin : 0;
+    padding: 0;
 }
 
 @mixin link-color($color) {
@@ -19,6 +19,28 @@
     opacity   : $opacity;
     $ieopacity: ($opacity * 100);
     filter    : alpha(opacity=$ieopacity);
+}
+
+@mixin flex($justify-content:none) {
+    display        : flex;
+    align-items    : center;
+    justify-content: $justify-content;
+}
+
+@mixin transformX($transform-num:10px, $transition-num:.3s) {
+    transform : translateX($transform-num);
+    transition: $transition-num;
+}
+
+@mixin transformY($transform-num:-4px, $transition-num:.3s) {
+    transform : translateY($transform-num);
+    transition: $transition-num;
+}
+
+@mixin block_center($vertical:0, $width: 100%) {
+    margin: $vertical auto;
+    width: $width;
+    display: block;
 }
 
 @mixin headline($color: $m-text-color, $f-size: 1.4em, $f-weight: 400) {
@@ -46,21 +68,4 @@
     height          : 100%;
     cursor          : pointer;
     width           : auto;
-}
-
-@mixin flex($justify-content:none) {
-    display        : flex;
-    align-items    : center;
-    justify-content: $justify-content;
-}
-
-
-@mixin transformX($transform-num:10px, $transition-num:.3s) {
-    transform : translateX($transform-num);
-    transition: $transition-num;
-}
-
-@mixin transformY($transform-num:-4px, $transition-num:.3s) {
-    transform : translateY($transform-num);
-    transition: $transition-num;
 }

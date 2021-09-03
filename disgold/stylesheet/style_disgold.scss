@@ -51,6 +51,10 @@ h4 {
     font-size: 1.1rem
 }
 
+a {
+    text-decoration: none;
+}
+
 p {
     margin-top   : 0;
     margin-bottom: 1rem
@@ -136,17 +140,16 @@ header {
     background-color: #f8f9fa;
     padding         : 20px 20px 16px;
     width           : 250px;
-
 }
 
 /* ----- form ----- */
-.left-nav-li {
+.left-form-li {
     margin-bottom: .8rem;
 
     .left-form {
-        position  : relative;
-        box-shadow: 1.5px 1.5px 5px rgba($color: $dark-color, $alpha: .3);
-        border-radius   : .25rem;
+        position     : relative;
+        box-shadow   : 1.5px 1.5px 5px rgba($color: $dark-color, $alpha: .3);
+        border-radius: .25rem;
 
         .form-control {
             display         : block;
@@ -162,15 +165,11 @@ header {
             border-radius   : .25rem;
         }
 
-        .text-input {
-            height: 100%;
-        }
-
         .search-btn {
             @include search_btn();
             background-color: rgb(239, 239, 239);
             border-radius   : 0 .25rem .25em 0 / 0 .25em .25em 0;
-            height: 94%;
+            height          : 94%;
         }
     }
 
@@ -202,37 +201,35 @@ header {
 }
 
 
-/* ----- left-cat ----- */
-.left-cat-li-head {
-    margin: 2rem 0 .8rem;
+/* ----- left-cat-head ----- */
+.left-cat-inner {
+    display          : flex;
+    @include box($rd :$rd-2, $b-color:$primary-color, $border:none, $padding:1rem .5rem);
+    justify-content  : space-around;
+    box-shadow       : 1.5px 1.5px 5px rgba($color: $dark-color, $alpha: .3);
+    margin           : 2rem 0 .8rem;
 
-    .left-cat-li-wrp {
-        display          : flex;
-        @include box($rd :$rd-2, $b-color:$primary-color, $border:none, $padding:1rem .5rem);
-        justify-content  : space-around;
-        box-shadow       : 1.5px 1.5px 5px rgba($color: $dark-color, $alpha: .3);
+    img {
+        width: 15%;
+    }
 
-        .left-h2 {
-            @include headline($color:$white-color, $f-size: 1.2rem);
-            margin-bottom           : 0;
-        }
-
-        img {
-            width: 15%;
-        }
+    .left-h2 {
+        @include headline($color:$white-color, $f-size: 1.2rem, $f-weight:700);
+        margin-bottom           : 0;
     }
 }
 
+
+/* ----- left-cat ----- */
 .left-cat-li {
-    background-color: none;
-    margin          : 0 .2rem .7rem;
-    border-bottom   : 1px dashed $primary-color;
-    padding-bottom  : .3rem;
+    margin        : 0 .2rem .7rem;
+    border-bottom : 1px dashed $primary-color;
+    padding-bottom: .3rem;
 
     a {
         text-decoration: none;
 
-        .left-cat-li-wrp {
+        .left-cat-li-inner {
             @include flex();
             transition: .3s;
 
@@ -254,16 +251,9 @@ header {
 }
 
 
-/* ----- left-amount ----- */
+/* ----- left-amount, left-ranking ----- */
 .left-amount {
-    .left-cat-li-head {
-        img {
-            width: 12%;
-        }
-    }
-
     .left-cat-li {
-
         a {
             display   : block;
             transition: .3s;
@@ -277,30 +267,66 @@ header {
                 @include headline($f-size:1.2rem);
                 padding-bottom           : .5rem;
                 margin-bottom            : 0;
-
             }
         }
     }
+}
 
+.left-ranking {
+
+    .left-cat-li {
+        border: none;
+
+        .rank-num {
+            @include block_center($width:50%);
+        }
+
+        a {
+            display   : block;
+            transition: .3s;
+
+            &:hover {
+                opacity: 1;
+                @include transformY(.3rem);
+            }
+
+            .left-rank-wrapper {
+
+                img {
+                    border-radius: $rd-2;
+                    width        : 100%;
+                    display      : block;
+                }
+
+                h4 {
+                    margin-left                : .5rem;
+                    margin-bottom              : 0;
+                    text-align                 : center;
+                    // @include headline($color:$primary-color,$f-size:1.4rem, $f-weight:700);
+                    @include headline($color   :#ff2f97, $f-size:1.4rem, $f-weight:700);
+                }
+            }
+        }
+    }
 }
 
 
 // ----------------- main ---------------------//
 /* main */
 
-// .main_wrapper {
-//     display        : flex;
-//     justify-content: space-between !important;
-// }
+.main_wrapper {
+    display        : flex;
+    justify-content: space-between !important;
+}
 
-// .main {
-//     width       : 750px;
-//     padding-left: 1.8rem;
+.main {
+    width       : 750px;
+    padding-left: 1.8rem;
 
-//     img {
-//         width: 100%;
-//     }
-// }
+    img {
+        width: 100%;
+    }
+}
 
 
 
